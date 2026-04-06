@@ -36,7 +36,7 @@
         done
         pushd "$root" > /dev/null
         ${lib.getExe pkgs.nixpkgs-fmt} .
-        ${lib.getExe pkgs.ocamlPackages.dune} fmt
+        ${lib.getExe pkgs.ocamlPackages.dune_3} fmt
         popd
       '';
 
