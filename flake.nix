@@ -2,16 +2,16 @@
   outputs = { self, nixpkgs, parts, systems } @ inputs: parts.lib.mkFlake { inherit inputs; } {
     systems = import systems;
 
+    flake.overlays.default = final: prev: {
+      ocamlPackages = prev.ocaml-ng.ocamlPackages.overrideScope (ocamlFinal: ocamlPrev: {
+        crouton = ocamlFinal.callPackage ./default.nix { };
+      });
+    };
+
     perSystem = { lib, pkgs, system, self', ... }: {
       _module.args.pkgs = import nixpkgs {
         inherit system;
-        overlays = [
-          (final: prev: {
-            ocamlPackages = prev.ocaml-ng.ocamlPackages.overrideScope (ocamlFinal: ocamlPrev: {
-              crouton = ocamlFinal.callPackage ./default.nix { };
-            });
-          })
-        ];
+        overlays = [ self.overlays.default ];
       };
 
       devShells.default = pkgs.mkShell {
