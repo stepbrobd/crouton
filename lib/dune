@@ -1,0 +1,7 @@
+(library
+ (name crouton)
+ (public_name crouton)
+ (modules_without_implementation sigs)
+ (libraries js_of_ocaml magic-mime)
+ (preprocess
+  (pps js_of_ocaml-ppx)))
