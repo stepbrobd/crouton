@@ -1,4 +1,4 @@
-(lang dune 3.21)
+(lang dune 3.20)
 
 (generate_opam_files true)
 (executables_implicit_empty_intf true)
