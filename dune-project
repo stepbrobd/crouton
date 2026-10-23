@@ -6,8 +6,8 @@
 (name crouton)
 (version 2026.406.0)
 (license MIT)
-(authors "Yifei Sun <ysun@hey.com>")
-(maintainers "Yifei Sun <ysun@hey.com>")
+(authors "Yifei Sun <ysun@duck.com>")
+(maintainers "Yifei Sun <ysun@duck.com>")
 
 (package
   (name crouton)
